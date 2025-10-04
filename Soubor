@@ -1,0 +1,21 @@
+def pozdrav(jmeno):
+    text = f"Ahoj, {jmeno}!"  
+    return text
+
+def vetsi_nez_tri(cislo):
+    if cislo > 3:
+        print(f"Cislo {cislo} je větší než 3")
+    else:
+        print(f"Cislo {cislo} je menší nebo rovno 3") 
+
+#tato funkce overi jestli je cislo delitelne tremi
+def delitelne_tremi(cislo):
+    if cislo = 0:
+        print(f"Cislo {cislo} je delitelne tremi")
+    else:
+        print(f"Cislo {cislo} neni delitelne tremi")
+
+if __name__ == "__main__":
+
+    hodnota = int(input("Zadej cislo: "))
+    delitelne_tremi(hodnota)
