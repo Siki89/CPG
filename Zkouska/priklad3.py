@@ -23,7 +23,11 @@ class Zamestnanec(ABC):
 # Vytvorte tridu Programator, ktera dedi od Zamestnanec
 # Programator dostava 10% navíc proti mzdě vypočítané metodou vypocitej_mzdu ve tride Zamestnanec
 class Programator(Zamestnanec):
-    pass
+    def vypocitej_mzdu(self):
+        # Nejprve vypočítáme základní mzdu pomocí metody z nadřazené třídy
+        zakladni_vypocet = super().vypocitej_mzdu()
+        # Přidáme 10% navíc
+        return zakladni_vypocet * 1.1
 
 
 # Vytvorte tridu Manazer, ktera dedi od Zamestnanec
@@ -31,7 +35,21 @@ class Programator(Zamestnanec):
 # Manazer dostava 1000 Kc navíc za každého podřízeného zaměstnance nad rámec mzdy
 # vypočítané metodou vypocitej_mzdu ve tride Zamestnanec
 class Manazer(Zamestnanec):
-    pass
+    passdef __init__(self, jmeno, zakladni_mzda, pocet_podrizenych):
+        # Voláme konstruktor nadřazené třídy
+        super().__init__(jmeno, zakladni_mzda)
+        self.pocet_podrizenych = pocet_podrizenych
+    
+    def vypocitej_mzdu(self):
+        # Nejprve vypočítáme základní mzdu pomocí metody z nadřazené třídy
+        zakladni_vypocet = super().vypocitej_mzdu()
+        # Přidáme 1000 Kč za každého podřízeného
+        bonus_za_podrizene = 1000 * self.pocet_podrizenych
+        return zakladni_vypocet + bonus_za_podrizene
+    
+    def __str__(self):
+        # Přidáme informace o podřízených do výpisu
+        return f"Zamestnanec {self.jmeno}, odpracovanych let {self.pocet_odpracovanych_let}, zakladni mzda {self.zakladni_mzda} Kc, pocet podrizenych {self.pocet_podrizenych}"
 
 
 if __name__ == "__main__":

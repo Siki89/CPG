@@ -14,7 +14,23 @@ def spocitej_statistiku(text):
     pocet_znaku = 0
 
     # Vaše řešení zde
-
+    if text:  # pokud text není prázdný
+        # Počet řádků = počet znaků nového řádku + 1
+        pocet_radku = text.count('\n')
+        if not text.endswith('\n'):
+            pocet_radku += 1
+        
+        # Počet slov - rozdělíme text podle mezer a prázdných řetězců
+        slova = text.split()
+        pocet_slov = len(slova)
+        
+        # Počet znaků - délka celého řetězce
+        pocet_znaku = len(text)
+    else:
+        # Pro prázdný text vracíme 0 pro všechny hodnoty
+        pocet_radku = 0
+        pocet_slov = 0
+        pocet_znaku = 0
     return pocet_radku, pocet_slov, pocet_znaku
 
 
